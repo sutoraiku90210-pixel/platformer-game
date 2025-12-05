@@ -31,4 +31,4 @@
 
 1. Клонируйте репозиторий:
 ```bash
-git clone https://github.com/ваш-username/platformer-game.git
+https://sutoraiku90210-pixel.github.io/platformer-game/
