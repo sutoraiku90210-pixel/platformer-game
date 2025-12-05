@@ -1,0 +1,375 @@
+/* Основные стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: #fff;
+    min-height: 100vh;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Шапка */
+.game-header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    border: 2px solid #0ea5e9;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.game-header h1 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 2.5rem;
+    color: #0ea5e9;
+    text-shadow: 3px 3px 0 #000;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #cbd5e1;
+    opacity: 0.9;
+}
+
+/* Основной игровой контейнер */
+.game-container {
+    background: rgba(15, 23, 42, 0.8);
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 30px;
+    border: 2px solid #1e293b;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+}
+
+.game-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin-bottom: 25px;
+}
+
+/* Canvas */
+#gameCanvas {
+    background: #0f172a;
+    border-radius: 10px;
+    border: 3px solid #334155;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.8);
+    flex: 1;
+    min-width: 300px;
+}
+
+/* Игровой UI */
+.game-ui {
+    background: rgba(30, 41, 59, 0.9);
+    border-radius: 10px;
+    padding: 20px;
+    min-width: 250px;
+    border: 2px solid #475569;
+}
+
+.stats {
+    margin-bottom: 25px;
+}
+
+.stat {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 10px;
+    background: rgba(15, 23, 42, 0.7);
+    border-radius: 8px;
+    border-left: 4px solid #0ea5e9;
+}
+
+.stat-icon {
+    font-size: 1.3rem;
+    color: #0ea5e9;
+    margin-right: 15px;
+    width: 30px;
+    text-align: center;
+}
+
+.stat-label {
+    flex: 1;
+    font-weight: 600;
+    color: #cbd5e1;
+}
+
+.stat-value {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.2rem;
+    color: #fbbf24;
+    text-shadow: 1px 1px 0 #000;
+}
+
+.controls-info h3 {
+    color: #0ea5e9;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.controls-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.control-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    background: rgba(15, 23, 42, 0.7);
+    border-radius: 8px;
+    border: 1px solid #475569;
+    transition: transform 0.2s;
+}
+
+.control-item:hover {
+    transform: translateY(-3px);
+    border-color: #0ea5e9;
+}
+
+.key {
+    font-family: 'Press Start 2P', monospace;
+    background: #1e293b;
+    color: #fbbf24;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    margin-bottom: 5px;
+    border: 1px solid #475569;
+}
+
+/* Кнопки управления */
+.game-controls {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding-top: 20px;
+    border-top: 2px solid #334155;
+}
+
+.btn {
+    padding: 12px 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.3s;
+    font-family: 'Roboto', sans-serif;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 15px rgba(0, 0, 0, 0.4);
+}
+
+.btn:active {
+    transform: translateY(-1px);
+}
+
+.btn-primary {
+    background: linear-gradient(to right, #0ea5e9, #3b82f6);
+    color: white;
+}
+
+.btn-secondary {
+    background: linear-gradient(to right, #64748b, #475569);
+    color: white;
+}
+
+.btn-danger {
+    background: linear-gradient(to right, #ef4444, #dc2626);
+    color: white;
+}
+
+.btn-info {
+    background: linear-gradient(to right, #8b5cf6, #7c3aed);
+    color: white;
+}
+
+/* Информационные карточки */
+.game-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+.info-card {
+    background: rgba(30, 41, 59, 0.9);
+    border-radius: 15px;
+    padding: 25px;
+    border: 2px solid #475569;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.info-card h3 {
+    color: #0ea5e9;
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#tasksList {
+    list-style: none;
+}
+
+#tasksList li {
+    padding: 12px;
+    margin-bottom: 10px;
+    background: rgba(15, 23, 42, 0.7);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-left: 4px solid #10b981;
+}
+
+#tasksList li i {
+    color: #10b981;
+}
+
+/* Футер */
+.game-footer {
+    text-align: center;
+    padding: 25px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    border-top: 2px solid #0ea5e9;
+}
+
+.game-footer a {
+    color: #0ea5e9;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s;
+}
+
+.game-footer a:hover {
+    color: #38bdf8;
+    text-decoration: underline;
+}
+
+.copyright {
+    margin-top: 15px;
+    color: #94a3b8;
+    font-size: 0.9rem;
+}
+
+/* Модальное окно */
+.modal {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    padding: 40px;
+    border-radius: 20px;
+    max-width: 600px;
+    width: 90%;
+    border: 3px solid #0ea5e9;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8);
+    text-align: center;
+}
+
+.modal-content h2 {
+    color: #0ea5e9;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.modal-content p {
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #cbd5e1;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: center;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .game-wrapper {
+        flex-direction: column;
+    }
+    
+    .game-header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .controls-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .game-controls {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    #gameCanvas {
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .game-header h1 {
+        font-size: 1.5rem;
+    }
+    
+    .info-card {
+        padding: 15px;
+    }
+    
+    .modal-content {
+        padding: 25px;
+    }
+}

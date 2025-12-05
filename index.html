@@ -1,0 +1,133 @@
+cd platformer-game
+# Для MacOS/Linux:
+open index.html
+# Для Windows:
+start index.html
+### **index.html**
+
+```html
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2D Платформер | Игра на JavaScript</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="https://img.icons8.com/color/96/000000/joystick.png">
+</head>
+<body>
+    <div class="container">
+        <header class="game-header">
+            <h1><i class="fas fa-gamepad"></i> 2D Платформер</h1>
+            <p class="subtitle">Приключение в пиксельном мире</p>
+        </header>
+
+        <main class="game-container">
+            <div class="game-wrapper">
+                <canvas id="gameCanvas" width="800" height="500"></canvas>
+                
+                <div class="game-ui">
+                    <div class="stats">
+                        <div class="stat">
+                            <span class="stat-icon"><i class="fas fa-heart"></i></span>
+                            <span class="stat-label">Жизни:</span>
+                            <span id="lives" class="stat-value">3</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-icon"><i class="fas fa-star"></i></span>
+                            <span class="stat-label">Очки:</span>
+                            <span id="score" class="stat-value">0</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-icon"><i class="fas fa-layer-group"></i></span>
+                            <span class="stat-label">Уровень:</span>
+                            <span id="level" class="stat-value">1</span>
+                        </div>
+                    </div>
+                    
+                    <div class="controls-info">
+                        <h3><i class="fas fa-keyboard"></i> Управление:</h3>
+                        <div class="controls-grid">
+                            <div class="control-item">
+                                <span class="key">← →</span>
+                                <span>Движение</span>
+                            </div>
+                            <div class="control-item">
+                                <span class="key">ПРОБЕЛ</span>
+                                <span>Прыжок</span>
+                            </div>
+                            <div class="control-item">
+                                <span class="key">P</span>
+                                <span>Пауза</span>
+                            </div>
+                            <div class="control-item">
+                                <span class="key">R</span>
+                                <span>Рестарт</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="game-controls">
+                <button id="startBtn" class="btn btn-primary">
+                    <i class="fas fa-play"></i> Начать игру
+                </button>
+                <button id="pauseBtn" class="btn btn-secondary">
+                    <i class="fas fa-pause"></i> Пауза
+                </button>
+                <button id="resetBtn" class="btn btn-danger">
+                    <i class="fas fa-redo"></i> Рестарт
+                </button>
+                <button id="fullscreenBtn" class="btn btn-info">
+                    <i class="fas fa-expand"></i> На весь экран
+                </button>
+            </div>
+        </main>
+        
+        <div class="game-info">
+            <div class="info-card">
+                <h3><i class="fas fa-tasks"></i> Задачи</h3>
+                <ul id="tasksList">
+                    <li><i class="far fa-check-circle"></i> Собрать 10 монет</li>
+                    <li><i class="far fa-circle"></i> Дойти до финиша</li>
+                    <li><i class="far fa-circle"></i> Победить 3 врагов</li>
+                </ul>
+            </div>
+            
+            <div class="info-card">
+                <h3><i class="fas fa-history"></i> История</h3>
+                <p>Добро пожаловать в пиксельный мир! Ваша задача - пройти все уровни, собирая монеты и избегая врагов.</p>
+                <p>Используйте свое мастерство платформера, чтобы достичь финиша каждого уровня.</p>
+            </div>
+        </div>
+        
+        <footer class="game-footer">
+            <p>Создано с <i class="fas fa-heart"></i> на JavaScript | 
+               <a href="https://github.com/ваш-username/platformer-game" target="_blank">
+                  <i class="fab fa-github"></i> GitHub
+               </a> | 
+               <a href="#" id="soundToggle">
+                  <i class="fas fa-volume-up"></i> Звук: Вкл
+               </a>
+            </p>
+            <p class="copyright">© 2023 2D Платформер | Лицензия MIT</p>
+        </footer>
+    </div>
+
+    <!-- Модальное окно -->
+    <div id="startModal" class="modal">
+        <div class="modal-content">
+            <h2><i class="fas fa-play-circle"></i> Добро пожаловать в Платформер!</h2>
+            <p>Используйте стрелки для движения и пробел для прыжка. Собирайте монеты, избегайте врагов и достигайте финиша каждого уровня.</p>
+            <div class="modal-buttons">
+                <button id="closeModal" class="btn btn-primary">Начать игру!</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
