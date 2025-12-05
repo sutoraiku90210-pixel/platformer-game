@@ -6,7 +6,7 @@
 
 ## 🎮 Демо
 
-[Играть онлайн](https://ваш-username.github.io/platformer-game/)
+[Играть онлайн] https://sutoraiku90210-pixel.github.io/platformer-game/
 
 ## ✨ Особенности
 
